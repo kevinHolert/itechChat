@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.mainWindowController">
    <children>
-      <TextArea layoutX="239.0" layoutY="116.0" prefHeight="200.0" prefWidth="200.0" text="scholzi" />
+      <HBox layoutX="44.0" layoutY="62.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <AnchorPane minHeight="1.0" minWidth="1.0" prefHeight="233.0" prefWidth="2.0" style="-fx-background-color: yellow;">
+                           <children>
+                              <HBox layoutX="20.0" layoutY="50.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <AnchorPane HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <MenuButton mnemonicParsing="false" text="Choose Partner" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+                                                         <items>
+                                                            <MenuItem mnemonicParsing="false" text="Scholzi" />
+                                                            <MenuItem mnemonicParsing="false" text="Fred" />
+                                                            <MenuItem mnemonicParsing="false" text="Hollert" />
+                                                         </items>
+                                                      </MenuButton>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: pink;" VBox.vgrow="ALWAYS" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: blue;" VBox.vgrow="ALWAYS">
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: pink;" VBox.vgrow="ALWAYS">
+                           <children>
+                              <TextArea layoutX="50.0" layoutY="-14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
