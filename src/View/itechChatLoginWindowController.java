@@ -38,8 +38,9 @@ public class itechChatLoginWindowController {
     void openMainWindow(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
         Stage stage = new Stage();
-        stage.setTitle("scholzi");
+        stage.setTitle("Send Message");
         stage.setScene(new Scene(root, 450, 450));
+        stage.setFullScreen(true);
         stage.show();
         ((Node)(event.getSource())).getScene().getWindow().hide();
     }

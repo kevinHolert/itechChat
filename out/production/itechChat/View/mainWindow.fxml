@@ -1,63 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.mainWindowController">
    <children>
       <HBox layoutX="44.0" layoutY="62.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+            <VBox prefHeight="400.0" prefWidth="132.0" style="-fx-border-color: white;" HBox.hgrow="ALWAYS">
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <AnchorPane minHeight="1.0" minWidth="1.0" prefHeight="233.0" prefWidth="2.0" style="-fx-background-color: yellow;">
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: yellow;" VBox.vgrow="ALWAYS">
                            <children>
-                              <HBox layoutX="20.0" layoutY="50.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane VBox.vgrow="ALWAYS">
                                  <children>
-                                    <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                    <AnchorPane layoutX="25.0" layoutY="8.0" prefHeight="100.0" prefWidth="192.0">
                                        <children>
-                                          <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                          <TextField fx:id="searchUserNameTextField" layoutY="17.0" promptText="User zum Chatten auswählen" />
+                                          <AnchorPane layoutX="154.0" prefHeight="100.0" prefWidth="91.0">
                                              <children>
-                                                <AnchorPane HBox.hgrow="ALWAYS">
-                                                   <children>
-                                                      <MenuButton mnemonicParsing="false" text="Choose Partner" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
-                                                         <items>
-                                                            <MenuItem mnemonicParsing="false" text="Scholzi" />
-                                                            <MenuItem mnemonicParsing="false" text="Fred" />
-                                                            <MenuItem mnemonicParsing="false" text="Hollert" />
-                                                         </items>
-                                                      </MenuButton>
-                                                   </children>
-                                                </AnchorPane>
+                                                <Button mnemonicParsing="false" prefHeight="83.0" prefWidth="91.0" style="-fx-background-color: transparent;" />
+                                                <ImageView fx:id="searchButton" fitHeight="30.0" fitWidth="37.0" layoutX="3.0" layoutY="16.0" onDragDetected="#search" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/lupe.png" />
+                                                   </image>
+                                                </ImageView>
                                              </children>
-                                          </HBox>
-                                          <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: pink;" VBox.vgrow="ALWAYS" />
+                                          </AnchorPane>
                                        </children>
-                                    </VBox>
+                                    </AnchorPane>
                                  </children>
-                              </HBox>
+                              </AnchorPane>
                            </children>
-                        </AnchorPane>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: pink;" VBox.vgrow="ALWAYS">
+                           <children>
+                              <AnchorPane VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Verfügbare Chats" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font></Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: blue;" VBox.vgrow="ALWAYS">
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: pink;" VBox.vgrow="ALWAYS">
                      <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: pink;" VBox.vgrow="ALWAYS">
+                        <AnchorPane VBox.vgrow="ALWAYS">
                            <children>
-                              <TextArea layoutX="50.0" layoutY="-14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <AnchorPane layoutX="83.0" layoutY="70.0" maxHeight="30.0" maxWidth="72.0" minHeight="1.0" minWidth="1.0" prefHeight="30.0" prefWidth="72.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <ListView fx:id="chatsListView" editable="true" fixedCellSize="2.0" orientation="HORIZONTAL" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="25.0" />
+                                 </children></AnchorPane>
                            </children>
                         </AnchorPane>
                      </children>
                   </VBox>
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white;" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="400.0" prefWidth="132.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: pink;" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <AnchorPane prefHeight="187.0" prefWidth="269.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <AnchorPane layoutX="5.0" layoutY="21.0" style="-fx-border-color: white; -fx-background-color: blue;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
+                                             <children>
+                                                <Label fx:id="latestMessage1" layoutX="198.0" layoutY="155.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="180.0" />
+                                                <Label fx:id="latestMessage2" layoutY="140.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="160.0" />
+                                                <Label fx:id="latestMessage3" layoutX="198.0" layoutY="120.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0" />
+                                                <Label fx:id="latestMessage4" layoutY="100.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="120.0" />
+                                                <Label fx:id="latestMessage5" layoutX="198.0" layoutY="80.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0" />
+                                                <Label fx:id="latestMessage6" layoutY="60.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="80.0" />
+                                                <Label fx:id="latestMessage7" layoutX="198.0" layoutY="40.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="60.0" />
+                                                <Label fx:id="latestMessage8" layoutY="20.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="40.0" />
+                                                <Label fx:id="latestMessage9" layoutX="198.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: pink;" VBox.vgrow="ALWAYS">
+                           <children>
+                              <AnchorPane prefHeight="148.0" prefWidth="269.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Geben sie eine Nachricht ein" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                    <AnchorPane layoutX="88.0" layoutY="128.0" AnchorPane.bottomAnchor="14.0">
+                                       <children>
+                                          <Button fx:id="sendMessageButton" mnemonicParsing="false" onAction="#sendMessage" text="Senden" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children></VBox>
          </children>
       </HBox>
    </children>
