@@ -5,9 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 public class mainWindowController {
 
@@ -15,49 +14,30 @@ public class mainWindowController {
     private TextField searchUserNameTextField;
 
     @FXML
-    private ImageView searchButton;
+    private Button searchButton;
 
     @FXML
     private ListView<?> chatsListView;
 
     @FXML
-    private Label latestMessage1;
+    private Label messageToLabel;
 
     @FXML
-    private Label latestMessage2;
+    private Button viewFullChatButton;
 
     @FXML
-    private Label latestMessage3;
+    private Label receivingUserLabel;
 
     @FXML
-    private Label latestMessage4;
-
-    @FXML
-    private Label latestMessage5;
-
-    @FXML
-    private Label latestMessage6;
-
-    @FXML
-    private Label latestMessage7;
-
-    @FXML
-    private Label latestMessage8;
-
-    @FXML
-    private Label latestMessage9;
+    private TextArea sendMessageTextArea;
 
     @FXML
     private Button sendMessageButton;
 
     @FXML
-    void search(MouseEvent event) {
-
-    }
-
-    @FXML
-    void sendMessage(ActionEvent event) {
+    void search(ActionEvent event) {
 
     }
 
 }
+

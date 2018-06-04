@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fullChatWindowController">
+   <children>
+      <AnchorPane fx:id="chatPane" style="-fx-border-color: white; -fx-background-color: transparent;" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="latestMessage1" layoutX="198.0" layoutY="155.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.bottomAnchor="200.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="180.0" />
+            <Label fx:id="latestMessage2" layoutY="140.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="160.0" />
+            <Label fx:id="latestMessage3" layoutX="198.0" layoutY="120.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0" />
+            <Label fx:id="latestMessage4" layoutY="100.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="120.0" />
+            <Label fx:id="latestMessage5" layoutX="198.0" layoutY="80.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0" />
+            <Label fx:id="latestMessage6" layoutY="60.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="80.0" />
+            <Label fx:id="latestMessage7" layoutX="198.0" layoutY="40.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="60.0" />
+            <Label fx:id="latestMessage8" layoutY="20.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="40.0" />
+            <Label fx:id="latestMessage9" layoutX="198.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
