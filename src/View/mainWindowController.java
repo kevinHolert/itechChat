@@ -46,6 +46,9 @@ public class mainWindowController {
 
         @FXML
         void search(ActionEvent event) {
+            itechChatLoginWindowController login = new itechChatLoginWindowController();
+            //Verbindung zu datenbank und dem user aufbauen
+            messageToLabel.setText("Nachricht von " + /*getUserName*/ " zu " + searchUserNameTextField.getText());
 
         }
 

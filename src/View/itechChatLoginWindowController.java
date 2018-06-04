@@ -18,10 +18,10 @@ import java.io.IOException;
 public class itechChatLoginWindowController {
 
     @FXML
-    private TextField userNameTextField;
+    public TextField userNameTextField;
 
     @FXML
-    private PasswordField passwortBox;
+    public PasswordField passwortBox;
 
     @FXML
     private Button loginButton;
@@ -31,7 +31,8 @@ public class itechChatLoginWindowController {
 
         userNameTextField.clear();
         passwortBox.clear();
-        openMainWindow(event);
+        /*if(Datenbankverbindung getUsername && passwort returns true)*/
+            openMainWindow(event);
 
     }
 

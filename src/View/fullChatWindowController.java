@@ -6,7 +6,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
+
 public class fullChatWindowController {
+
+
+    @FXML
+    private Button messagesDeleteButton;
 
     @FXML
     private AnchorPane chatPane;
@@ -63,8 +69,28 @@ public class fullChatWindowController {
     private Button backToMainWindowButton;
 
     @FXML
-    void backToMainWindow(ActionEvent event) {
+    private Button loadMessageButton;
 
+    @FXML
+    void backToMainWindow(ActionEvent event) throws IOException{
+        itechChatLoginWindowController login = new itechChatLoginWindowController();
+        login.openMainWindow(event);
+    }
+
+
+    @FXML
+    void deleteMessages(ActionEvent event) {
+        clearReceivedMessages();
+        clearOwnMessages();
+    }
+
+    @FXML
+    void loadMessages(ActionEvent event){
+        //getMessages
+        while(ownMessage8.getText().equals("") && receivedMessage8.getText().equals("")) {
+            ownMessageSetter("Datenbankeintrag" /*getUserMessage.toString*/);
+            receivedMessageSetter("Datenbankeintrag" /*getUserMessage.toString*/);
+        }
     }
 
     void ownMessageSetter(String Datenbankeintrag){
@@ -114,14 +140,14 @@ public class fullChatWindowController {
         } else if (receivedMessage5.getText().isEmpty()) {
             receivedMessage5.setText(Datenbankeintrag);
         } else if (receivedMessage6.getText().isEmpty()) {
-            ownMessage6.setText(Datenbankeintrag);
+            receivedMessage6.setText(Datenbankeintrag);
         } else if (receivedMessage7.getText().isEmpty()) {
             receivedMessage7.setText(Datenbankeintrag);
         } else if (receivedMessage8.getText().isEmpty()) {
             receivedMessage8.setText(Datenbankeintrag);
         } else if (!receivedMessage1.getText().isEmpty() && !receivedMessage2.getText().isEmpty() && !receivedMessage3.getText().isEmpty() && !receivedMessage4.getText().isEmpty()
                 && !receivedMessage5.getText().isEmpty() && !receivedMessage6.getText().isEmpty() && !receivedMessage7.getText().isEmpty() && !receivedMessage8.getText().isEmpty()) {
-            clearOwnMessages();
+            clearReceivedMessages();
             ownMessage1.setText(Datenbankeintrag);
         }
 

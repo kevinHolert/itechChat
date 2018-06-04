@@ -8,17 +8,29 @@
    <children>
       <AnchorPane fx:id="chatPane" style="-fx-border-color: white; -fx-background-color: transparent;" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="latestMessage1" layoutX="198.0" layoutY="155.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="180.0" />
-            <Label fx:id="latestMessage2" layoutY="140.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="160.0" />
-            <Label fx:id="latestMessage3" layoutX="198.0" layoutY="120.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0" />
-            <Label fx:id="latestMessage4" layoutY="100.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="120.0" />
-            <Label fx:id="latestMessage5" layoutX="198.0" layoutY="80.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0" />
-            <Label fx:id="latestMessage6" layoutY="60.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="80.0" />
-            <Label fx:id="latestMessage7" layoutX="198.0" layoutY="40.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="60.0" />
-            <Label fx:id="latestMessage8" layoutY="20.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="40.0" />
-            <Label fx:id="latestMessage9" layoutX="198.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0" />
+            <Label fx:id="ownMessage4" layoutX="198.0" layoutY="155.0" style="-fx-border-color: white;" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="180.0" />
+            <Label fx:id="receivedMessage5" layoutY="140.0" style="-fx-border-color: white;" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="160.0" />
+            <Label fx:id="ownMessage5" layoutX="198.0" layoutY="120.0" style="-fx-border-color: white;" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0" />
+            <Label fx:id="receivedMessage6" layoutY="100.0" style="-fx-border-color: white;" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="120.0" />
+            <Label fx:id="ownMessage6" layoutX="198.0" layoutY="80.0" style="-fx-border-color: white;" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0" />
+            <Label fx:id="receivedMessage7" layoutY="60.0" style="-fx-border-color: white;" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="80.0" />
+            <Label fx:id="ownMessage7" layoutX="198.0" layoutY="40.0" style="-fx-border-color: white;" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="60.0" />
+            <Label fx:id="receivedMessage8" layoutY="20.0" style="-fx-border-color: white;" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="40.0" />
+            <Label fx:id="ownMessage8" layoutX="198.0" style="-fx-border-color: white;" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0" />
+            <Label fx:id="receivedMessage4" style="-fx-border-color: white;" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="200.0" />
+            <Label fx:id="ownMessage3" style="-fx-border-color: white;" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="220.0" />
+            <Label fx:id="receivedMessage3" style="-fx-border-color: white;" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="240.0" />
+            <Label fx:id="ownMessage2" style="-fx-border-color: white;" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="260.0" />
+            <Label fx:id="receivedMessage2" style="-fx-border-color: white;" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="280.0" />
+            <Label fx:id="ownMessage1" style="-fx-border-color: white;" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="300.0" />
+            <Label fx:id="receivedMessage1" style="-fx-border-color: white;" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="320.0" />
+            <AnchorPane layoutX="153.0" layoutY="361.0" AnchorPane.bottomAnchor="14.0" />
+            <Button fx:id="loadMessageButton" layoutX="20.0" layoutY="357.0" mnemonicParsing="false" onAction="#loadMessages" text="lade Nachrichten" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" />
+            <Button fx:id="messagesDeleteButton" layoutX="334.0" layoutY="357.0" mnemonicParsing="false" onAction="#deleteMessages" text="lösche Verlauf" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" />
          </children>
       </AnchorPane>
       <Button fx:id="backToMainWindowButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainWindow" text="zurück" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <Label layoutX="558.0" layoutY="6.0" text="Chat with" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+      <Label layoutX="572.0" layoutY="18.0" text="getUserName" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0" />
    </children>
 </AnchorPane>
