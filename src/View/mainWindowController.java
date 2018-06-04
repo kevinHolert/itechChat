@@ -27,7 +27,7 @@ public class mainWindowController {
         private Button searchButton;
 
         @FXML
-        private ListView<?> usersListTextArea;
+        private TextArea usersListTextArea;
 
         @FXML
         private Label messageToLabel;

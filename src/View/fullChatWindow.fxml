@@ -8,7 +8,7 @@
    <children>
       <AnchorPane fx:id="chatPane" style="-fx-border-color: white; -fx-background-color: transparent;" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="latestMessage1" layoutX="198.0" layoutY="155.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.bottomAnchor="200.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="180.0" />
+            <Label fx:id="latestMessage1" layoutX="198.0" layoutY="155.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="180.0" />
             <Label fx:id="latestMessage2" layoutY="140.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="160.0" />
             <Label fx:id="latestMessage3" layoutX="198.0" layoutY="120.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0" />
             <Label fx:id="latestMessage4" layoutY="100.0" style="-fx-border-color: white;" text="nachricht 1" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="120.0" />
