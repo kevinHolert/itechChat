@@ -1,24 +1,22 @@
 package backend;
 
-import java.sql.Timestamp;
-
-public class message {
-	private user userFrom;
-	private user userTo;
+public class Message {
+	private User userFrom;
+	private User userTo;
 	private String message;
 	private String timestamp;
 	
 	
-	public user getUserFrom() {
+	public User getUserFrom() {
 		return userFrom;
 	}
-	public void setUserFrom(user userFrom) {
+	public void setUserFrom(User userFrom) {
 		this.userFrom = userFrom;
 	}
-	public user getUserTo() {
+	public User getUserTo() {
 		return userTo;
 	}
-	public void setUserTo(user userTo) {
+	public void setUserTo(User userTo) {
 		this.userTo = userTo;
 	}
 	public String getMessage() {

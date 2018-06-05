@@ -2,31 +2,31 @@ package backend;
 
 import java.util.ArrayList;
 
-public class chat {
-	private user user1;
-	private user user2;
-	private ArrayList<message> messages;
+public class Chat {
+	private User user1;
+	private User user2;
+	private ArrayList<Message> Messages;
 	
-	public user getUser1() {
+	public User getUser1() {
 		return user1;
 	}
-	public void setUser1(user user1) {
+	public void setUser1(User user1) {
 		this.user1 = user1;
 	}
-	public user getUser2() {
+	public User getUser2() {
 		return user2;
 	}
-	public void setUser2(user user2) {
+	public void setUser2(User user2) {
 		this.user2 = user2;
 	}
-	public ArrayList<message> getMessages() {
-		return messages;
+	public ArrayList<Message> getMessages() {
+		return Messages;
 	}
-	public void setMessages(ArrayList<message> messages) {
-		this.messages = messages;
+	public void setMessages(ArrayList<Message> Messages) {
+		this.Messages = Messages;
 	}
 	
-	public void setMessage(user userFrom, user userTo, String message, String timestamp){
+	public void setMessage(User userFrom, User userTo, String message, String timestamp){
 		
 	}
 }

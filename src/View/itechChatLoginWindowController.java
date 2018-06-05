@@ -30,11 +30,11 @@ public class itechChatLoginWindowController {
     @FXML
     void login(ActionEvent event) throws IOException {
         dbConnect db = new dbConnect();
-        user user = new user();
+        User user = new User();
         
         if(db.confirmUsername(userNameTextField.getText())){
-        	user=db.getUser(userNameTextField.getText());
-        	System.out.println("user confirmed");
+            user =db.getUser(userNameTextField.getText());
+        	System.out.println("User confirmed");
             if(user.checkPw(user, userNameTextField.getText(),passwortBox.getText())){
                 System.out.println("open next window");
             	openMainWindow(event);

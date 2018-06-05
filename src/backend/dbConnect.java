@@ -51,7 +51,7 @@ public class dbConnect {
         System.out.println("Connection closed");
     }
     
-    public void insertUser(user user){
+    public void insertUser(User user){
     	
     	String query = new String();
     	this.openConnection();
@@ -172,8 +172,8 @@ public class dbConnect {
     	
     }
     
-    public user getUser(String username){
-    	user result = new user();
+    public User getUser(String username){
+    	User result = new User();
     	String query = new String();
     	
     	if(confirmUsername(username)){
@@ -200,8 +200,8 @@ public class dbConnect {
 		return result;
     }
     
-    public chat getChat(int userFrom, int userTo){
-    	chat result = new chat();
+    public Chat getChat(int userFrom, int userTo){
+    	Chat result = new Chat();
     	String query = new String();
     	
     	this.openConnection();

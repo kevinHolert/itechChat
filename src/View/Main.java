@@ -2,7 +2,7 @@ package View;
 
 
 import backend.dbConnect;
-import backend.user;
+import backend.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,7 +26,7 @@ public void start(Stage primaryStage) throws Exception{
 
 
 public static void main(String[] args) {
-        //user user = new user("Kevin","nurderhsv");
+        //User user = new User("Kevin","nurderhsv");
         launch(args);
         
         }
