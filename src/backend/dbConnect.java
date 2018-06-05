@@ -2,6 +2,7 @@
  * 
  *----------- apache-commons-codec-1.4
  *----------- mysql-connector-java-8.0.11
+ * see dependencies folder
  *
  * */
 

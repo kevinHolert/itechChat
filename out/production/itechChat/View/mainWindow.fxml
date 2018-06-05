@@ -119,6 +119,7 @@
                                                 <Button fx:id="sendMessageButton" mnemonicParsing="false" onAction="#sendMessage" text="Nachricht senden" />
                                              </children>
                                           </AnchorPane>
+                                          <Button fx:id="logOutButton" layoutX="205.0" layoutY="166.0" mnemonicParsing="false" onAction="#logOut" text="log out" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>

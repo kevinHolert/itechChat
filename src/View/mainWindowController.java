@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class mainWindowController {
+        @FXML
+        private Button logOutButton;
 
         @FXML
         private TextField searchUserNameTextField;
@@ -79,6 +81,11 @@ public class mainWindowController {
             //Backen
 
 
+        }
+        @FXML
+        void logOut(ActionEvent event) {
+            fullChatWindowController fullch = new fullChatWindowController();
+            fullch.logOut(event);
         }
 
     }

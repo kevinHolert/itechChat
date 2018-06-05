@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public class fullChatWindowController {
 
+    @FXML
+    private Button logOutButton;
 
     @FXML
     private Button messagesDeleteButton;
@@ -161,6 +163,12 @@ public class fullChatWindowController {
         receivedMessage6.setText("");
         receivedMessage7.setText("");
         receivedMessage8.setText("");
+    }
+
+
+    @FXML
+    void logOut(ActionEvent event) {
+        //backend logout
     }
 
 }
