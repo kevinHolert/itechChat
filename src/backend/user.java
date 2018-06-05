@@ -1,5 +1,9 @@
 package backend;
 
+
+import static org.apache.commons.codec.digest.DigestUtils.sha256Hex;
+
+
 public class user {
 	private int userid = 0;
 	private String username;
@@ -13,11 +17,11 @@ public class user {
 	
 	public String hashpassword(String password){
 		generateSalt();
-		return org.apache.commons.codec.digest.DigestUtils.sha256Hex(password+this.salt);
+		return sha256Hex(password+this.salt);
 	}
 	
 	public String hashpassword(String password, String salt){
-		return org.apache.commons.codec.digest.DigestUtils.sha256Hex(password+salt);
+		return sha256Hex(password+salt);
 	}
 	
 	public user(String username,String pass){

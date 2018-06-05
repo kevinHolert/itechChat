@@ -1,6 +1,6 @@
 /*Needed libraries:
  * 
- *----------- apache-commons-codec-1.4
+ *----------- apache-commons-codec-1.9
  *----------- mysql-connector-java-8.0.11
  * see dependencies folder
  *

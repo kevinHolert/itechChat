@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import backend.*;
 
 import java.io.IOException;
 
@@ -28,11 +29,14 @@ public class itechChatLoginWindowController {
 
     @FXML
     void login(ActionEvent event) throws IOException {
-
-        userNameTextField.clear();
-        passwortBox.clear();
-        /*if(Datenbankverbindung getUsername && passwort returns true)*/
-            openMainWindow(event);
+        dbConnect db = new dbConnect();
+        user user = new user();
+        if(db.confirmUsername(userNameTextField.getText())){
+            if(user.checkPw(userNameTextField.getText(),passwortBox.getText())){
+                openMainWindow(event);
+            }
+            //gui error username or pw wrong
+        }
 
     }
 
