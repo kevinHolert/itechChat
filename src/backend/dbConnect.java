@@ -111,17 +111,24 @@ public class dbConnect {
     	String result = new String();
     	String query = new String();
     	
+    	result=null;
+    	
     	this.openConnection();
     	try{
-    		query = "SELECT * from mydb.user";
+    		query = "SELECT password from user Where user.username='"+username+"'";
     		
-    		// create the mysql insert preparedstatement
-		      PreparedStatement preparedStmt = conn.prepareStatement(query);
-		     
-		      
-		      
-		      preparedStmt.execute();
-		      
+    		Statement s= conn.createStatement();
+    		s.execute(query);
+    		
+    		ResultSet r = s.getResultSet();
+    		
+    		if(r!=null){
+    			while(r.next()){
+    				result= r.getString("Password");
+    			}
+    		}
+    		
+    		
 		      
     	}catch(SQLException e){
 			e.printStackTrace();
@@ -129,10 +136,39 @@ public class dbConnect {
 			if(conn!=null){
 				this.closeConnection();
 			}
+			return result;
+		}
+    }
+    
+    public boolean confirmUsername(String username){
+    	boolean result = false;
+    	String un = "null";
+    	String query = new String();
+    	
+    	this.openConnection();
+    	try{
+    		query = "SELECT username from user Where user.username='"+username+"'";
+    		
+    		Statement s= conn.createStatement();
+    		s.execute(query);
+    		
+    		ResultSet r = s.getResultSet();
+    		
+    		if(r!=null){
+    			while(r.next()){
+    				un= r.getString("Username");
+    				result = true;
+    			}
+    		}
+    		
+    		
+		      
+    	}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			return result;
 		}
     	
-    	
-    	return result;
     }
 }
 	
