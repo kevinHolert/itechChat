@@ -1,34 +1,26 @@
 package backend;
 
-
-
-import static org.apache.commons.codec.digest.DigestUtils.sha256Hex;
-
-
-
-
-public class user {
-
+public class User {
 	private int userid = 0;
 	private String username;
 	private String pw;
 	private String salt;
 	
 	
-	public user(){
+	public User(){
 		
 	}
 	
 	public String hashpassword(String password){
 		generateSalt();
-		return sha256Hex(password+this.salt);
+		return org.apache.commons.codec.digest.DigestUtils.sha256Hex(password+this.salt);
 	}
 	
 	public String hashpassword(String password, String salt){
-		return sha256Hex(password+salt);
+		return org.apache.commons.codec.digest.DigestUtils.sha256Hex(password+salt);
 	}
 	
-	public user(String username,String pass){
+	public User(String username,String pass){
 		this.username = username;
 		this.pw = this.hashpassword(pass); 
 	}
@@ -46,14 +38,15 @@ public class user {
 		
 	}
 	
-	public boolean checkPw(user user,String username,String pw){
+	public boolean checkPw(String username,String pw){
 		boolean result = false;
 		String pass = new String();
 		dbConnect db = new dbConnect();
+		User u1 = new User();
 		
-		
-		String hashedPW = user.hashpassword(pw,user.getSalt());
-		if((user.getUsername().equals(username)) && (hashedPW.equals(user.getPw()))){
+		u1 = db.getUser("username");
+		String hashedPW = u1.hashpassword(pw,u1.salt);
+		if(u1.getUsername()==username && hashedPW == u1.getPw()){
 			result=true;
 		}
 				

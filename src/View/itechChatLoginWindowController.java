@@ -31,9 +31,15 @@ public class itechChatLoginWindowController {
     void login(ActionEvent event) throws IOException {
         dbConnect db = new dbConnect();
         user user = new user();
+        
         if(db.confirmUsername(userNameTextField.getText())){
-            if(user.checkPw(userNameTextField.getText(),passwortBox.getText())){
-                openMainWindow(event);
+        	user=db.getUser(userNameTextField.getText());
+        	System.out.println("user confirmed");
+            if(user.checkPw(user, userNameTextField.getText(),passwortBox.getText())){
+                System.out.println("open next window");
+            	openMainWindow(event);
+            }else{
+            	System.out.println("Kevin ist doof und hat noch keine Fehlermeldungen erstellt :( (N) Aber das Passwort oder der Username sind falsch");
             }
             //gui error username or pw wrong
         }
