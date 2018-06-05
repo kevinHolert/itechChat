@@ -51,7 +51,7 @@ public class dbConnect {
         System.out.println("Connection closed");
     }
     
-    public void createUser(String name, String pw, String salt){
+    public void insertUser(user user){
     	
     	String query = new String();
     	this.openConnection();
@@ -62,9 +62,9 @@ public class dbConnect {
     		
     		// create the mysql insert preparedstatement
 		      PreparedStatement preparedStmt = conn.prepareStatement(query);
-		      preparedStmt.setString (1, name);
-		      preparedStmt.setString (2, pw);
-		      preparedStmt.setString (3, salt);
+		      preparedStmt.setString (1, user.getUsername());
+		      preparedStmt.setString (2, user.getPw());
+		      preparedStmt.setString (3, user.getSalt());
 
 		      // execute the preparedstatement
 		      preparedStmt.execute();
@@ -78,7 +78,7 @@ public class dbConnect {
 		}
     }
     
-    public void createMessage(int userFrom, int userTo, String message){
+    public void insertMessage(int userFrom, int userTo, String message){
     	String query = new String();
     	this.openConnection();
     	Timestamp dt = new Timestamp(1111);
@@ -171,6 +171,61 @@ public class dbConnect {
 		}
     	
     }
+    
+    public user getUser(String username){
+    	user result = new user();
+    	String query = new String();
+    	
+    	if(confirmUsername(username)){
+    		this.openConnection();
+    		try{
+    			query = "SELECT * from user Where user.username='"+username+"'";
+        		
+        		Statement s= conn.createStatement();
+        		s.execute(query);
+        		
+        		ResultSet r = s.getResultSet();
+        		if(r!=null){
+        			while(r.next()){
+        				result.setUserid(r.getInt("iduser"));
+        				result.setUsername(r.getString("username"));
+        				result.setPw(r.getString("password"));
+        				result.setSalt(r.getString("salt"));
+        			}
+        		}
+    		}catch(SQLException e){
+    			e.printStackTrace();
+    		}
+    	}
+		return result;
+    }
+    
+    public chat getChat(int userFrom, int userTo){
+    	chat result = new chat();
+    	String query = new String();
+    	
+    	this.openConnection();
+		try{
+			query = "SELECT * FROM message Where message.user_iduser_from='"+userFrom+"' AND message.user_userid_to='"+userTo+"'";
+    		
+    		Statement s= conn.createStatement();
+    		s.execute(query);
+    		
+    		ResultSet r = s.getResultSet();
+    		if(r!=null){
+    			while(r.next()){
+    				/*result.setUserid(r.getInt("iduser"));
+    				result.setUsername(r.getString("username"));
+    				result.setPw(r.getString("password"));
+    				result.setSalt(r.getString("salt"));*/
+    			}
+    		}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+    	return result;
+    }
+    
 }
 	
 
