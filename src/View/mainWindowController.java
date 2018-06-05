@@ -1,5 +1,6 @@
 package View;
 
+import backend.User;
 import javafx.beans.value.ObservableStringValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +15,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import backend.dbConnect;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,12 +48,20 @@ public class mainWindowController {
         @FXML
         private Button sendMessageButton;
 
+        void checkUserName(){
+            dbConnect db = new dbConnect();
+            if(db.confirmUsername(searchUserNameTextField.getText())){
+                messageToLabel.setText("Nachricht an " + searchUserNameTextField.getText());
+            } else {
+                // TODO: Kevin muss hier ein Fenster mit einer Fehlermeldung bauen!!!!
+            }
+        }
+
         @FXML
         void search(ActionEvent event) {
             itechChatLoginWindowController login = new itechChatLoginWindowController();
-            //Verbindung zu datenbank und dem User aufbauen
-            messageToLabel.setText("Nachricht von " + /*getUserName*/ " zu " + searchUserNameTextField.getText());
-
+            checkUserName();
+            showUsers();
         }
 
         @FXML
@@ -76,10 +86,15 @@ public class mainWindowController {
         }
 
         public void showUsers(){
-            ArrayList<String> user = new ArrayList<>();
-            //Datenbankuser zur List adden
-            //Backen
 
+            dbConnect db = new dbConnect();
+            ArrayList<User> user = new ArrayList<>();
+            user = db.getAllUsers();
+            for(int i=0; i < user.size();i++) {
+                System.out.println(user.get(i).getUsername());
+                usersListTextArea.appendText(user.get(i).getUsername()+ System.getProperty("line.separator"));
+            }
+            //usersListTextArea.setText(user);
 
         }
         @FXML

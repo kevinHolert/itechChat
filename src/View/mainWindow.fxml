@@ -48,7 +48,7 @@
                            <children>
                               <AnchorPane VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label text="Verfügbare Chats" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+                                    <Label text="Verfügbare Nutzer" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
                                        <font>
                                           <Font size="20.0" />
                                        </font></Label>
@@ -64,7 +64,7 @@
                            <children>
                               <AnchorPane layoutX="83.0" layoutY="70.0" maxHeight="30.0" maxWidth="72.0" minHeight="1.0" minWidth="1.0" prefHeight="30.0" prefWidth="72.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <TextArea fx:id="usersListTextArea" layoutX="67.0" prefHeight="200.0" prefWidth="200.0" promptText="Possible Chats are displayed here" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                    <TextArea fx:id="usersListTextArea" editable="false" layoutX="67.0" prefHeight="200.0" prefWidth="200.0" promptText="Possible Chats are displayed here" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                                  </children></AnchorPane>
                            </children>
                         </AnchorPane>

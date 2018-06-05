@@ -10,7 +10,7 @@ package backend;
 
 import java.sql.*;
 import java.sql.Connection;
-
+import java.util.ArrayList;
 
 
 public class dbConnect {
@@ -22,7 +22,7 @@ public class dbConnect {
     private Connection conn;
 
     public dbConnect(){
-        JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+        JDBC_DRIVER = "com.mysql.jdbc.Driver";
         DB_URL = "jdbc:mysql://127.0.0.1:3306/mydb?serverTimezone=UTC";
         USER = "root";
         PASS = "";
@@ -183,7 +183,7 @@ public class dbConnect {
         		
         		Statement s= conn.createStatement();
         		s.execute(query);
-        		
+
         		ResultSet r = s.getResultSet();
         		if(r!=null){
         			while(r.next()){
@@ -197,6 +197,29 @@ public class dbConnect {
     			e.printStackTrace();
     		}
     	}
+		return result;
+    }
+
+    public ArrayList<User> getAllUsers(){
+    	ArrayList<User> result = new ArrayList<>();
+    	String query = new String();
+
+		this.openConnection();
+		try{
+			query = "SELECT * from user";
+
+			Statement s= conn.createStatement();
+			s.execute(query);
+
+			ResultSet r = s.getResultSet();
+			if(r!=null){
+				while(r.next()){
+					result.add(new User(r.getInt("iduser"),r.getString("username"),r.getString("password"),r.getString("salt")));
+				}
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
 		return result;
     }
     

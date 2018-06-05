@@ -32,6 +32,13 @@ public class User {
 		this.username = username;
 		this.pw = this.hashpassword(pass); 
 	}
+
+	public User(int id, String username, String pass, String salt){
+		this.setUserid(id);
+		this.setUsername(username);
+		this.setPw(pass);
+		this.setSalt(salt);
+	}
 	
 	public void generateSalt(){
 		int count = 8;
