@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class mainWindowController {
+
+        public User receiver = new User();
         @FXML
         private Button logOutButton;
 
@@ -51,6 +53,7 @@ public class mainWindowController {
         void checkUserName(){
             dbConnect db = new dbConnect();
             if(db.confirmUsername(searchUserNameTextField.getText())){
+                receiver = db.getUser(searchUserNameTextField.getText());
                 messageToLabel.setText("Nachricht an " + searchUserNameTextField.getText());
             } else {
                 // TODO: Kevin muss hier ein Fenster mit einer Fehlermeldung bauen!!!!
@@ -66,7 +69,9 @@ public class mainWindowController {
 
         @FXML
         void sendMessage(ActionEvent event) {
-
+            dbConnect db = new dbConnect();
+            db.insertMessage(itechChatLoginWindowController.loggedIn.getUserid(),receiver.getUserid(),sendMessageTextArea.getText());
+            sendMessageTextArea.setText("");
         }
 
         @FXML

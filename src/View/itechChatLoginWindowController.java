@@ -17,7 +17,7 @@ import backend.*;
 import java.io.IOException;
 
 public class itechChatLoginWindowController {
-
+    public static User loggedIn = new User();
     @FXML
     public TextField userNameTextField;
 
@@ -36,6 +36,7 @@ public class itechChatLoginWindowController {
             user =db.getUser(userNameTextField.getText());
         	System.out.println("User confirmed");
             if(user.checkPw(user, userNameTextField.getText(),passwortBox.getText())){
+                loggedIn = db.getUser(userNameTextField.getText());
                 System.out.println("open next window");
             	openMainWindow(event);
             }else{
