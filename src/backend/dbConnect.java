@@ -8,8 +8,9 @@
 package backend;
 
 import java.sql.*;
+import java.sql.Connection;
 
-import com.mysql.jdbc.*;
+
 
 public class dbConnect {
 	private String JDBC_DRIVER;  
