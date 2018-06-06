@@ -5,8 +5,15 @@ public class Message {
 	private User userTo;
 	private String message;
 	private String timestamp;
-	
-	
+
+	public Message(User userFrom, User userTo, String message, String timestamp) {
+		super();
+		this.userFrom = userFrom;
+		this.userTo = userTo;
+		this.message = message;
+		this.timestamp = timestamp;
+	}
+
 	public User getUserFrom() {
 		return userFrom;
 	}

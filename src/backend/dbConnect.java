@@ -248,7 +248,44 @@ public class dbConnect {
 		}
     	return result;
     }
-    
+	public Chat getChat(User userFrom, User userTo){
+		Chat result = new Chat();
+		String query = new String();
+		String query2 = new String();
+
+		this.openConnection();
+		try{
+			query = "SELECT * FROM message Where User_IdUser_From='"+userFrom.getUserid()+"' AND User_IdUser_To='"+userTo.getUserid()+"' ORDER BY timestamp";
+			query2 ="SELECT * FROM message Where User_IdUser_From='"+userTo.getUserid()+"' AND User_IdUser_To='"+userFrom.getUserid()+"' ORDER BY timestamp";
+
+			Statement s= conn.createStatement();
+			s.execute(query);
+			s.execute(query2);
+			ResultSet r = s.getResultSet();
+			ResultSet r2 = s.getResultSet();
+			if(r!=null){
+				result.setUser1(new User(userFrom.getUserid(),userFrom.getUsername(),userFrom.getPw(),userFrom.getSalt()));
+				result.setUser2(new User(userTo.getUserid(),userTo.getUsername(),userTo.getPw(),userTo.getSalt()));
+				while(r.next()){
+					System.out.println(r.getString("message"));
+					result.addSentMessage(new Message(userFrom,userTo,r.getString("Message"),r.getTimestamp("timestamp").toString()));
+					System.out.println(result.getSentMessages().get(0).getMessage());
+				}
+				if(r2!=null) {
+					while (r2.next()) {
+						result.addReceivedMessage(new Message(userTo, userFrom, r.getString("Message"), r.getTimestamp("timestamp").toString()));
+					}
+				}
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			this.closeConnection();
+		}
+		return result;
+	}
+
+
 }
 	
 
