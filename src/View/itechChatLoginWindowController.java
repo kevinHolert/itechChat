@@ -42,6 +42,9 @@ public class itechChatLoginWindowController {
     @FXML
     private Button saveRegisterButton;
 
+    @FXML
+    private Label errorLabel;
+
 
     @FXML
     private Label wrongUserLabel;
@@ -101,22 +104,23 @@ public class itechChatLoginWindowController {
         //registerTextField.getText();
         //passwortBox.getCharacters();
         dbConnect db = new dbConnect();
-        if(!db.confirmUsername(registerTextField.getText())){
+        if(!db.confirmUsername(registerTextField.getText()) && !registerTextField.getText().isEmpty() && !registerPasswort.getText().isEmpty()){
             if(registerPasswort.getText().equals(registerPasswortConfirm.getText())){
                 User user = new User();
                 user.setPw(user.hashpassword(registerPasswort.getText()));
                 user.setUsername(registerTextField.getText());
                 //System.out.println(user.getUsername()+user.getPw());
                 db.insertUser(user);
+                openloginWindow(event);
             }else{
-                //TODO: Passwords dont match
+                errorLabel.setVisible(true);
             }
         }else{
-            //TODO: Fehler: username already exists
+            errorLabel.setVisible(true);
         }
 
 
-        openloginWindow(event);
+
 
 
     }

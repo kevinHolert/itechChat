@@ -30,5 +30,6 @@
             <Button fx:id="saveRegisterButton" layoutX="69.0" layoutY="161.0" mnemonicParsing="false" onAction="#saveRegister" text="Registrieren" AnchorPane.bottomAnchor="10.0" />
          </children>
       </AnchorPane>
+      <Label fx:id="errorLabel" layoutX="141.0" layoutY="369.0" style="-fx-background-color: red;" text="Name schon vorhanden oder Passwort stimmt nicht überein" visible="false" />
    </children>
 </AnchorPane>

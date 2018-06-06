@@ -105,7 +105,10 @@ public class fullChatWindowController implements Initializable{
     }
 
     @FXML
-    void logOut(ActionEvent event) {
+    void logOut(ActionEvent event) throws IOException {
+        itechChatLoginWindowController itech = new itechChatLoginWindowController();
+        itech.openloginWindow(event);
+
 
     }
 

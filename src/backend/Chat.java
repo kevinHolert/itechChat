@@ -5,14 +5,7 @@ import java.util.ArrayList;
 public class Chat {
 	private User user1;
 	private User user2;
-	private ArrayList<Message> sentMessages = new ArrayList<>();
-	private ArrayList<Message> receivedMessages = new ArrayList<>();
 	private ArrayList<Message> allMessages = new ArrayList<>();
-
-	public Chat getChat(User u1, User u2){
-		dbConnect db = new dbConnect();
-		return db.getChat(u1,u2);
-	}
 
 	public Chat getwholeChat(User u1, User u2){
 		dbConnect db = new dbConnect();
@@ -31,12 +24,7 @@ public class Chat {
 		this.allMessages.add(message);
 	}
 
-	public void addSentMessage(Message message){
-		this.sentMessages.add(message);
-	}
-	public void addReceivedMessage(Message message){
-		receivedMessages.add(message);
-	}
+
 	public User getUser1() {
 		return user1;
 	}
@@ -57,18 +45,8 @@ public class Chat {
 	}
 
 
-	public ArrayList<Message> getSentMessages() {
-		return sentMessages;
-	}
-
-
 	public void setSentMessages(ArrayList<Message> sentMessages) {
 		sentMessages = sentMessages;
-	}
-
-
-	public ArrayList<Message> getReceivedMessages() {
-		return receivedMessages;
 	}
 
 

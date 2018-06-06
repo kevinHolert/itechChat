@@ -119,9 +119,9 @@ public class mainWindowController implements Initializable{
 
         }
         @FXML
-        void logOut(ActionEvent event) {
-            fullChatWindowController fullch = new fullChatWindowController();
-            fullch.logOut(event);
+        void logOut(ActionEvent event) throws IOException {
+                itechChatLoginWindowController itech = new itechChatLoginWindowController();
+                itech.openloginWindow(event);
         }
 
     }

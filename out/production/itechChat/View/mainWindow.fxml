@@ -54,7 +54,7 @@
                                           <Font size="20.0" />
                                        </font></Label>
                                     <Button fx:id="viewFullChatButton" layoutX="452.0" layoutY="55.0" mnemonicParsing="false" onAction="#showFullChatWindow" prefHeight="25.0" prefWidth="134.0" text="Chat öffnen" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-                                    <Label fx:id="messageToLabel" layoutX="402.0" layoutY="10.0" prefHeight="30.0" prefWidth="149.0" text="Chat mit User" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="10.0">
+                                    <Label fx:id="messageToLabel" layoutX="402.0" layoutY="10.0" prefHeight="30.0" prefWidth="191.0" text="Chat mit User" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
