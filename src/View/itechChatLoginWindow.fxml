@@ -61,7 +61,7 @@
                                                                <children>
                                                                   <VBox style="-fx-background-color: #b5dff2;">
                                                                      <children>
-                                                                        <TextField fx:id="userNameTextField" VBox.vgrow="ALWAYS">
+                                                                        <TextField fx:id="userNameTextField" onMouseClicked="#handleErrorMessage" VBox.vgrow="ALWAYS">
                                                                            <VBox.margin>
                                                                               <Insets left="5.0" top="10.0" />
                                                                            </VBox.margin>
@@ -88,6 +88,7 @@
                                           <AnchorPane style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
                                              <children>
                                                 <Button fx:id="loginButton" maxHeight="30.0" maxWidth="71.0" minHeight="1.0" minWidth="1.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="71.0" text="Login" AnchorPane.bottomAnchor="111.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="19.0" />
+                                                <Label fx:id="wrongUserLabel" layoutX="130.0" layoutY="129.0" style="-fx-background-color: red;" text="Falscher Nutzername oder Passwort" visible="false" AnchorPane.bottomAnchor="17.0" />
                                              </children>
                                           </AnchorPane>
                                        </children>

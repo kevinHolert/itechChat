@@ -9,8 +9,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import backend.*;
 
@@ -27,6 +29,11 @@ public class itechChatLoginWindowController {
     @FXML
     private Button loginButton;
 
+
+    @FXML
+    private Label wrongUserLabel;
+
+
     @FXML
     void login(ActionEvent event) throws IOException {
         dbConnect db = new dbConnect();
@@ -40,11 +47,18 @@ public class itechChatLoginWindowController {
                 System.out.println("open next window");
             	openMainWindow(event);
             }else{
-            	System.out.println("Kevin ist doof und hat noch keine Fehlermeldungen erstellt :( (N) Aber das Passwort oder der Username sind falsch");
+                wrongUserLabel.setVisible(true);
             }
-            //gui error username or pw wrong
+        }else {
+                wrongUserLabel.setVisible(true);
+            }
         }
 
+
+
+    @FXML
+    void handleErrorMessage(MouseEvent event) {
+        wrongUserLabel.setVisible(false);
     }
 
     void openMainWindow(ActionEvent event) throws IOException{

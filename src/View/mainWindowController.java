@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,15 +15,25 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import backend.dbConnect;
 
+import javax.xml.stream.Location;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class mainWindowController {
+public class mainWindowController implements Initializable{
 
-        public User receiver = new User();
+        @Override
+        public void initialize(URL url, ResourceBundle bundle){
+            showUsers();
+
+        }
+
+        public static User receiver = new User();
         @FXML
         private Button logOutButton;
 
@@ -50,29 +61,34 @@ public class mainWindowController {
         @FXML
         private Button sendMessageButton;
 
+        @FXML
+        private Label userNotKnownLabel;
+
+
+
         void checkUserName(){
             dbConnect db = new dbConnect();
             if(db.confirmUsername(searchUserNameTextField.getText())){
-                receiver = db.getUser(searchUserNameTextField.getText());
+                 receiver = db.getUser(searchUserNameTextField.getText());
                 messageToLabel.setText("Nachricht an " + searchUserNameTextField.getText());
             } else {
-                // TODO: Kevin muss hier ein Fenster mit einer Fehlermeldung bauen!!!!
+                userNotKnownLabel.setVisible(true);
             }
+        }
+
+
+        @FXML
+        void handleErrorMessage(MouseEvent event) {
+            userNotKnownLabel.setVisible(false);
         }
 
         @FXML
         void search(ActionEvent event) {
             itechChatLoginWindowController login = new itechChatLoginWindowController();
             checkUserName();
-            showUsers();
         }
 
-        @FXML
-        void sendMessage(ActionEvent event) {
-            dbConnect db = new dbConnect();
-            db.insertMessage(itechChatLoginWindowController.loggedIn.getUserid(),receiver.getUserid(),sendMessageTextArea.getText());
-            sendMessageTextArea.setText("");
-        }
+
 
         @FXML
         void showFullChatWindow(ActionEvent event) throws IOException {
@@ -99,7 +115,7 @@ public class mainWindowController {
                 System.out.println(user.get(i).getUsername());
                 usersListTextArea.appendText(user.get(i).getUsername()+ System.getProperty("line.separator"));
             }
-            //usersListTextArea.setText(user);
+
 
         }
         @FXML

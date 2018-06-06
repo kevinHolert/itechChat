@@ -2,7 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.fullChatWindowController">
    <children>
@@ -25,13 +27,26 @@
             <Label fx:id="ownMessage1" style="-fx-border-color: white;" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="300.0" />
             <Label fx:id="receivedMessage1" style="-fx-border-color: white;" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="320.0" />
             <AnchorPane layoutX="153.0" layoutY="361.0" AnchorPane.bottomAnchor="14.0" />
-            <Button fx:id="loadMessageButton" layoutX="20.0" layoutY="357.0" mnemonicParsing="false" onAction="#loadMessages" text="lade Nachrichten" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" />
-            <Button fx:id="messagesDeleteButton" layoutX="334.0" layoutY="357.0" mnemonicParsing="false" onAction="#deleteMessages" text="lösche Verlauf" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+            <TextField fx:id="MessageTextField" layoutX="126.0" layoutY="361.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
+            <Button fx:id="sendButton" layoutX="334.0" layoutY="373.0" mnemonicParsing="false" onAction="#sendMessage" text="Senden" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" />
          </children>
       </AnchorPane>
       <Button fx:id="backToMainWindowButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainWindow" text="zurück" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
       <Label layoutX="558.0" layoutY="6.0" text="Chat with" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
       <Label layoutX="572.0" layoutY="18.0" text="getUserName" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0" />
-      <Button fx:id="logOutButton" layoutX="544.0" layoutY="361.0" mnemonicParsing="false" onAction="#logOut" text="log out" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+      <Button fx:id="logOutButton" layoutX="544.0" layoutY="361.0" mnemonicParsing="false" onAction="#logOut" text="log out" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="5.0">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
+      <Button fx:id="messagesDeleteButton" layoutX="502.0" layoutY="316.0" mnemonicParsing="false" onAction="#deleteMessages" text="lösche Verlauf" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="5.0">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button fx:id="loadMessageButton" layoutX="502.0" layoutY="261.0" mnemonicParsing="false" onAction="#loadMessages" prefHeight="25.0" prefWidth="91.0" text="lade Nachrichten" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="5.0">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

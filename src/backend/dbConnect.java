@@ -161,7 +161,7 @@ public class dbConnect {
     				result = true;
     			}
     		}
-    		System.out.println("ist kevin da? "+result);
+
     		
 		      
     	}catch(SQLException e){

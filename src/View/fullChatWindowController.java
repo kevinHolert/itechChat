@@ -1,20 +1,19 @@
 package View;
 
+import backend.User;
+import backend.dbConnect;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
 public class fullChatWindowController {
 
-    @FXML
-    private Button logOutButton;
-
-    @FXML
-    private Button messagesDeleteButton;
+    //public static User receiver = new User();
 
     @FXML
     private AnchorPane chatPane;
@@ -68,13 +67,25 @@ public class fullChatWindowController {
     private Label receivedMessage1;
 
     @FXML
+    private TextField MessageTextField;
+
+    @FXML
+    private Button sendButton;
+
+    @FXML
     private Button backToMainWindowButton;
+
+    @FXML
+    private Button logOutButton;
+
+    @FXML
+    private Button messagesDeleteButton;
 
     @FXML
     private Button loadMessageButton;
 
     @FXML
-    void backToMainWindow(ActionEvent event) throws IOException{
+    void backToMainWindow(ActionEvent event) throws IOException {
         itechChatLoginWindowController login = new itechChatLoginWindowController();
         login.openMainWindow(event);
     }
@@ -165,10 +176,17 @@ public class fullChatWindowController {
         receivedMessage8.setText("");
     }
 
-
     @FXML
     void logOut(ActionEvent event) {
-        //backend logout
+
+    }
+
+    @FXML
+    void sendMessage(ActionEvent event) {
+        dbConnect db = new dbConnect();
+        mainWindowController main = new mainWindowController();
+        db.insertMessage(itechChatLoginWindowController.loggedIn.getUserid(),main.receiver.getUserid(),MessageTextField.getText());
+        MessageTextField.setText("");
     }
 
 }
