@@ -29,6 +29,19 @@ public class itechChatLoginWindowController {
     @FXML
     private Button loginButton;
 
+    @FXML
+    private TextField registerTextField;
+
+    @FXML
+    private PasswordField registerPasswort;
+
+
+    @FXML
+    private PasswordField registerPasswortConfirm;
+
+    @FXML
+    private Button saveRegisterButton;
+
 
     @FXML
     private Label wrongUserLabel;
@@ -64,9 +77,57 @@ public class itechChatLoginWindowController {
     void openMainWindow(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
         Stage stage = new Stage();
-        stage.setTitle("Send Message to Hollert");
+        stage.setTitle("Itech Chat");
         stage.setScene(new Scene(root, 550, 550));
         stage.setFullScreen(true);
+        stage.show();
+        ((Node)(event.getSource())).getScene().getWindow().hide();
+    }
+
+    @FXML
+    void register(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("registerWindow.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Itech Chat");
+        stage.setScene(new Scene(root, 400, 420));
+        stage.setFullScreen(false);
+        stage.show();
+        ((Node)(event.getSource())).getScene().getWindow().hide();
+
+    }
+
+    @FXML
+    void saveRegister(ActionEvent event) throws IOException {
+        //registerTextField.getText();
+        //passwortBox.getCharacters();
+        dbConnect db = new dbConnect();
+        if(!db.confirmUsername(registerTextField.getText())){
+            if(registerPasswort.getText().equals(registerPasswortConfirm.getText())){
+                User user = new User();
+                user.setPw(user.hashpassword(registerPasswort.getText()));
+                user.setUsername(registerTextField.getText());
+                //System.out.println(user.getUsername()+user.getPw());
+                db.insertUser(user);
+            }else{
+                //TODO: Passwords dont match
+            }
+        }else{
+            //TODO: Fehler: username already exists
+        }
+
+
+        openloginWindow(event);
+
+
+    }
+
+    void openloginWindow(ActionEvent event)throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("itechChatLoginWindow.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("itech Chat");
+        stage.setScene(new Scene(root, 480, 420));
+        stage.setFullScreen(false);
+        stage.setResizable(false);
         stage.show();
         ((Node)(event.getSource())).getScene().getWindow().hide();
     }

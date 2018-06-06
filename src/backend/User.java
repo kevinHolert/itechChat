@@ -18,6 +18,11 @@ public class User {
 	public User(){
 		
 	}
+
+	public User(int id, String username){
+		this.userid = id;
+		this.username = username;
+	}
 	
 	public String hashpassword(String password){
 		generateSalt();

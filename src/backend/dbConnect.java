@@ -81,9 +81,10 @@ public class dbConnect {
     public void insertMessage(int userFrom, int userTo, String message){
     	String query = new String();
     	this.openConnection();
-    	Timestamp dt = new Timestamp(1111);
-    	dt = new Timestamp(dt.getTime())	;
-    	
+
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		System.out.println(timestamp);
+
     	try{
     		query = " insert into message (message, User_idUser_From, User_idUser_To, timestamp)"
     		        + " values (?, ?, ?, ?)";
@@ -93,7 +94,7 @@ public class dbConnect {
 		      preparedStmt.setString (1, message);
 		      preparedStmt.setInt (2, userFrom);
 		      preparedStmt.setInt (3, userTo);
-		      preparedStmt.setTimestamp(4, dt);
+		      preparedStmt.setTimestamp(4, timestamp);
 		      
 		      
 		      preparedStmt.execute();
@@ -275,6 +276,41 @@ public class dbConnect {
 					while (r2.next()) {
 						result.addReceivedMessage(new Message(userTo, userFrom, r.getString("Message"), r.getTimestamp("timestamp").toString()));
 					}
+				}
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			this.closeConnection();
+		}
+		return result;
+	}
+
+	public Chat getAllMessages(User userFrom, User userTo){
+		Chat result = new Chat();
+		String query = new String();
+		String query2 = new String();
+
+		this.openConnection();
+		try{
+			//query = "SELECT * FROM message Where (User_IdUser_From='"+userFrom.getUserid()+"' AND User_IdUser_To='"+userTo.getUserid()+"') OR (User_IdUser_From='"+userTo.getUserid()+"' AND User_IdUser_To='"+userFrom.getUserid()+"') ORDER BY timestamp";
+			query = "SELECT idMessage, Message, timestamp, u1.username as userfrom, user_iduser_from, u2.username as userto, user_iduser_to\n" +
+					" FROM message t" +
+					" JOIN user u1 ON u1.iduser = t.user_iduser_from" +
+					" JOIN user u2 ON u2.iduser = t.user_iduser_to" +
+					" WHERE (User_IdUser_From='"+userFrom.getUserid()+"' AND User_IdUser_To='"+userTo.getUserid()+"') OR (User_IdUser_From='"+userTo.getUserid()+"' AND User_IdUser_To='"+userFrom.getUserid()+"')  ORDER BY timestamp";
+			Statement s= conn.createStatement();
+			s.execute(query);
+
+			ResultSet r = s.getResultSet();
+			if(r!=null){
+				result.setUser1(new User(userFrom.getUserid(),userFrom.getUsername(),userFrom.getPw(),userFrom.getSalt()));
+				result.setUser2(new User(userTo.getUserid(),userTo.getUsername(),userTo.getPw(),userTo.getSalt()));
+				while(r.next()) {
+					//System.out.println(r.getString("message"));
+					//result.addSentMessage(new Message(userFrom,userTo,r.getString("Message"),r.getTimestamp("timestamp").toString()));
+					result.addToAll(new Message(new User(r.getInt("user_iduser_from"),r.getString("userfrom")), new User(r.getInt("user_iduser_to"),r.getString("userto")), r.getString("Message"), r.getTimestamp("timestamp").toString()));
+					//System.out.println(result.getSentMessages().get(0).getMessage());
 				}
 			}
 		}catch(SQLException e){

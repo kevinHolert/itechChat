@@ -5,6 +5,7 @@ import backend.User;
 import backend.dbConnect;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -12,8 +13,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class fullChatWindowController {
+public class fullChatWindowController implements Initializable{
 
     //public static User receiver = new User();
 
@@ -43,6 +46,18 @@ public class fullChatWindowController {
     private Button loadMessageButton;
 
     @FXML
+    private Label receiverLabel;
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle bundle){
+        ActionEvent event = new ActionEvent();
+        loadMessages(event);
+        receiverLabel.setText(mainWindowController.receiver.getUsername());
+
+    }
+
+    @FXML
     void backToMainWindow(ActionEvent event) throws IOException {
         itechChatLoginWindowController login = new itechChatLoginWindowController();
         login.openMainWindow(event);
@@ -57,42 +72,25 @@ public class fullChatWindowController {
 
     @FXML
     void loadMessages(ActionEvent event){
-
+        fullChatTextArea.clear();
         Chat chat = new Chat();
         System.out.println(itechChatLoginWindowController.loggedIn.getUsername());
         System.out.println(mainWindowController.receiver.getUsername());
-        chat = chat.getChat(itechChatLoginWindowController.loggedIn,mainWindowController.receiver);
+        chat = chat.getwholeChat(itechChatLoginWindowController.loggedIn,mainWindowController.receiver);
 
-        int sizeReceived = chat.getReceivedMessages().size();
-        int sizeSent = chat.getSentMessages().size();
+        int size = chat.getAllMessages().size();
 
-        for(int i=0;i<sizeReceived+sizeSent;i++){
-
-        }
-        if(sizeReceived != 0 && sizeSent!=0){
-            if(i<sizeReceived){
-                ownMessage1.setText(chat.getSentMessages().get(i).getMessage());
-                i++;
-            }
-        }
-
-        for(int i=0;i < chat.getReceivedMessages().size();i++){
-            fullChatTextArea.setText(chat.getSentMessages().get(i).getMessage());
+        for(int i=0;i<size;i++){
+            fullChatTextArea.appendText(chat.getAllMessages().get(i).getUserFrom().getUsername()+": "+chat.getAllMessages().get(i).getMessage()+System.getProperty("line.separator"));
         }
 
     }
 
-    void ownMessageSetter(String Datenbankeintrag){
-        Chat chat = new Chat();
-        chat = chat.getChat(itechChatLoginWindowController.loggedIn,mainWindowController.receiver);
-
-        for(int i=0;i < chat.getReceivedMessages().)
-            fullChatTextArea.setText(chat.getSentMessages().get(0).getMessage());
-    }
 
 
 
-    }
+
+
     public void clearOwnMessages(){
 
     }
@@ -113,10 +111,13 @@ public class fullChatWindowController {
 
     @FXML
     void sendMessage(ActionEvent event) {
+
         dbConnect db = new dbConnect();
         mainWindowController main = new mainWindowController();
         db.insertMessage(itechChatLoginWindowController.loggedIn.getUserid(),main.receiver.getUserid(),MessageTextField.getText());
         MessageTextField.setText("");
+
+        loadMessages(event);
     }
 
 }

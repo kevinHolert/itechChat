@@ -10,13 +10,25 @@ public class Chat {
 	private ArrayList<Message> allMessages = new ArrayList<>();
 
 	public Chat getChat(User u1, User u2){
-		Chat chat = new Chat();
 		dbConnect db = new dbConnect();
 		return db.getChat(u1,u2);
 	}
 
-	public void orderMessages(){
+	public Chat getwholeChat(User u1, User u2){
+		dbConnect db = new dbConnect();
+		return db.getAllMessages(u1, u2);
+	}
 
+	public ArrayList<Message> getAllMessages() {
+		return allMessages;
+	}
+
+	public void setAllMessages(ArrayList<Message> allMessages) {
+		this.allMessages = allMessages;
+	}
+
+	public void addToAll(Message message){
+		this.allMessages.add(message);
 	}
 
 	public void addSentMessage(Message message){
