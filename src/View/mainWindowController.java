@@ -1,8 +1,6 @@
 package View;
 
 import backend.User;
-import javafx.beans.value.ObservableStringValue;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,59 +10,52 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import backend.dbConnect;
 
-import javax.xml.stream.Location;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class mainWindowController implements Initializable{
-
         @Override
         public void initialize(URL url, ResourceBundle bundle){
             showUsers();
-
         }
 
-        public static User receiver = new User();
-        @FXML
-        private Button logOutButton;
-
-        @FXML
-        private TextField searchUserNameTextField;
-
+        //Button
         @FXML
         private Button searchButton;
-
         @FXML
-        private TextArea usersListTextArea;
-
-        @FXML
-        private Label messageToLabel;
-
+        private Button logOutButton;
         @FXML
         private Button viewFullChatButton;
-
-        @FXML
-        private Label receivingUserLabel;
-
-        @FXML
-        private TextArea sendMessageTextArea;
-
         @FXML
         private Button sendMessageButton;
 
+        //Label
+        @FXML
+        private Label messageToLabel;
         @FXML
         private Label userNotKnownLabel;
+        @FXML
+        private Label receivingUserLabel;
 
+        //Text
+        @FXML
+        private TextField searchUserNameTextField;
+        @FXML
+        private TextArea usersListTextArea;
+        @FXML
+        private TextArea sendMessageTextArea;
 
+    public static User receiver = new User();
 
         void checkUserName(){
             dbConnect db = new dbConnect();
@@ -84,11 +75,9 @@ public class mainWindowController implements Initializable{
 
         @FXML
         void search(ActionEvent event) {
-            itechChatLoginWindowController login = new itechChatLoginWindowController();
+            loginWindowController login = new loginWindowController();
             checkUserName();
         }
-
-
 
         @FXML
         void showFullChatWindow(ActionEvent event) throws IOException {
@@ -100,10 +89,10 @@ public class mainWindowController implements Initializable{
             Parent root = FXMLLoader.load(getClass().getResource("fullChatWindow.fxml"));
             Stage stage = new Stage();
             stage.setTitle("FullChat");
-            stage.setScene(new Scene(root, 450, 450));
+            stage.setScene(new Scene(root, 1920, 1080));
             stage.setFullScreen(true);
             stage.show();
-            ((Node)(event.getSource())).getScene().getWindow().hide();
+            ((Node) (event.getSource())).getScene().getWindow().hide();
         }
 
         public void showUsers(){
@@ -115,12 +104,11 @@ public class mainWindowController implements Initializable{
                 System.out.println(user.get(i).getUsername());
                 usersListTextArea.appendText(user.get(i).getUsername()+ System.getProperty("line.separator"));
             }
-
-
         }
+
         @FXML
         void logOut(ActionEvent event) throws IOException {
-                itechChatLoginWindowController itech = new itechChatLoginWindowController();
+                loginWindowController itech = new loginWindowController();
                 itech.openloginWindow(event);
         }
 

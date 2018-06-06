@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.mainWindowController">
+<AnchorPane fx:id="mainWindowMainPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.mainWindowController">
    <children>
       <HBox layoutX="44.0" layoutY="62.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -19,16 +19,16 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: yellow;" VBox.vgrow="ALWAYS">
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #A9F5E1;" VBox.vgrow="ALWAYS">
                            <children>
                               <AnchorPane VBox.vgrow="ALWAYS">
                                  <children>
                                     <AnchorPane layoutX="25.0" layoutY="8.0" prefHeight="100.0" prefWidth="192.0">
                                        <children>
-                                          <TextField fx:id="searchUserNameTextField" layoutY="17.0" onMouseClicked="#handleErrorMessage" promptText="User zum Chatten auswählen" />
+                                          <TextField fx:id="searchUserNameTextField" layoutY="17.0" onMouseClicked="#handleErrorMessage" promptText="User zum Chatten auswählen" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="45.0" />
                                           <AnchorPane layoutX="154.0" prefHeight="100.0" prefWidth="91.0">
                                              <children>
-                                                <Button fx:id="searchButton" mnemonicParsing="false" onAction="#search" prefHeight="83.0" prefWidth="91.0" style="-fx-background-color: transparent;">
+                                                <Button fx:id="searchButton" layoutY="25.0" mnemonicParsing="false" onAction="#search" prefHeight="83.0" prefWidth="91.0" style="-fx-background-color: transparent;">
                                                    <graphic>
                                                       <ImageView fitHeight="30.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -39,13 +39,18 @@
                                              </children>
                                           </AnchorPane>
                                           <Label fx:id="userNotKnownLabel" layoutY="69.0" style="-fx-background-color: transparent;" text="Nutzer nicht vorhanden" textFill="RED" visible="false" AnchorPane.bottomAnchor="25.0" />
+                                          <Label layoutX="11.0" layoutY="14.0" text="Gewünschten User eingeben" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
                                        </children>
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
                            </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: pink;" VBox.vgrow="ALWAYS">
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #E0F8F7;" VBox.vgrow="ALWAYS">
                            <children>
                               <AnchorPane prefHeight="91.0" prefWidth="274.0" VBox.vgrow="ALWAYS">
                                  <children>
@@ -65,7 +70,7 @@
                         </VBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: pink;" VBox.vgrow="ALWAYS">
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #E0F8F7;" VBox.vgrow="ALWAYS">
                      <children>
                         <AnchorPane VBox.vgrow="ALWAYS">
                            <children>

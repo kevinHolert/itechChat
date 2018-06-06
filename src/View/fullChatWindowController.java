@@ -1,7 +1,6 @@
 package View;
 
 import backend.Chat;
-import backend.User;
 import backend.dbConnect;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,33 +17,29 @@ import java.util.ResourceBundle;
 
 public class fullChatWindowController implements Initializable{
 
-    //public static User receiver = new User();
-
-    @FXML
-    private AnchorPane chatPane;
-
-    @FXML
-    private TextArea fullChatTextArea;
-
-
-    @FXML
-    private TextField MessageTextField;
-
+    //Button
     @FXML
     private Button sendButton;
-
+    @FXML
+    private Button logOutButton;
+    @FXML
+    private Button messagesDeleteButton;
+    @FXML
+    private Button loadMessageButton;
     @FXML
     private Button backToMainWindowButton;
 
+    //Text
     @FXML
-    private Button logOutButton;
-
+    private TextArea fullChatTextArea;
     @FXML
-    private Button messagesDeleteButton;
+    private TextField MessageTextField;
 
+    //Pane
     @FXML
-    private Button loadMessageButton;
+    private AnchorPane chatPane;
 
+    //Label
     @FXML
     private Label receiverLabel;
 
@@ -54,29 +49,21 @@ public class fullChatWindowController implements Initializable{
         ActionEvent event = new ActionEvent();
         loadMessages(event);
         receiverLabel.setText(mainWindowController.receiver.getUsername());
-
     }
 
     @FXML
     void backToMainWindow(ActionEvent event) throws IOException {
-        itechChatLoginWindowController login = new itechChatLoginWindowController();
+        loginWindowController login = new loginWindowController();
         login.openMainWindow(event);
-    }
-
-
-    @FXML
-    void deleteMessages(ActionEvent event) {
-        clearReceivedMessages();
-        clearOwnMessages();
     }
 
     @FXML
     void loadMessages(ActionEvent event){
         fullChatTextArea.clear();
         Chat chat = new Chat();
-        System.out.println(itechChatLoginWindowController.loggedIn.getUsername());
+        System.out.println(loginWindowController.loggedIn.getUsername());
         System.out.println(mainWindowController.receiver.getUsername());
-        chat = chat.getwholeChat(itechChatLoginWindowController.loggedIn,mainWindowController.receiver);
+        chat = chat.getwholeChat(loginWindowController.loggedIn,mainWindowController.receiver);
 
         int size = chat.getAllMessages().size();
 
@@ -86,41 +73,25 @@ public class fullChatWindowController implements Initializable{
 
     }
 
-
-
-
-
-
-    public void clearOwnMessages(){
-
-    }
-
-    void receivedMessageSetter(String Datenbankeintrag) {
-
-    }
-
-
-    public void clearReceivedMessages(){
-
-    }
-
     @FXML
     void logOut(ActionEvent event) throws IOException {
-        itechChatLoginWindowController itech = new itechChatLoginWindowController();
+        loginWindowController itech = new loginWindowController();
         itech.openloginWindow(event);
-
-
     }
 
     @FXML
     void sendMessage(ActionEvent event) {
-
         dbConnect db = new dbConnect();
         mainWindowController main = new mainWindowController();
-        db.insertMessage(itechChatLoginWindowController.loggedIn.getUserid(),main.receiver.getUserid(),MessageTextField.getText());
+        db.insertMessage(loginWindowController.loggedIn.getUserid(),main.receiver.getUserid(),MessageTextField.getText());
         MessageTextField.setText("");
-
         loadMessages(event);
     }
+    @FXML
+    void deleteMessages(ActionEvent event) {
+        fullChatTextArea.clear();
+
+    }
+
 
 }

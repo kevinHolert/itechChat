@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.itechChatLoginWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.loginWindowController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
@@ -41,7 +41,7 @@
                                                          <children>
                                                             <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                                                <children>
-                                                                  <VBox style="-fx-background-color: #b5dff2;" HBox.hgrow="ALWAYS">
+                                                                  <VBox style="-fx-background-color: #A9F5E1;" HBox.hgrow="ALWAYS">
                                                                      <children>
                                                                         <Label prefHeight="29.0" prefWidth="99.0" text="User Name:" VBox.vgrow="ALWAYS">
                                                                            <VBox.margin>
@@ -57,9 +57,9 @@
                                                                   </VBox>
                                                                </children>
                                                             </HBox>
-                                                            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #b5dff2;" HBox.hgrow="ALWAYS">
+                                                            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #A9F5E1;" HBox.hgrow="ALWAYS">
                                                                <children>
-                                                                  <VBox style="-fx-background-color: #b5dff2;">
+                                                                  <VBox style="-fx-background-color: #A9F5E1;">
                                                                      <children>
                                                                         <TextField fx:id="userNameTextField" onMouseClicked="#handleErrorMessage" VBox.vgrow="ALWAYS">
                                                                            <VBox.margin>

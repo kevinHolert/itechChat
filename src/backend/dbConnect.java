@@ -249,7 +249,7 @@ public class dbConnect {
 		}
     	return result;
     }
-	
+
 
 	public Chat getAllMessages(User userFrom, User userTo){
 		Chat result = new Chat();

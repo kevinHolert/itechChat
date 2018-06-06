@@ -1,7 +1,8 @@
 package View;
 
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,43 +19,39 @@ import backend.*;
 
 import java.io.IOException;
 
-public class itechChatLoginWindowController {
-    public static User loggedIn = new User();
-    @FXML
-    public TextField userNameTextField;
+public class loginWindowController {
 
-    @FXML
-    public PasswordField passwortBox;
-
+    //Button
     @FXML
     private Button loginButton;
-
-    @FXML
-    private TextField registerTextField;
-
-    @FXML
-    private PasswordField registerPasswort;
-
-
-    @FXML
-    private PasswordField registerPasswortConfirm;
-
     @FXML
     private Button saveRegisterButton;
 
+    //Text
+    @FXML
+    public TextField userNameTextField;
+    @FXML
+    public PasswordField passwortBox;
+    @FXML
+    private TextField registerTextField;
+    @FXML
+    private PasswordField registerPasswort;
+    @FXML
+    private PasswordField registerPasswortConfirm;
+
+    //Label
     @FXML
     private Label errorLabel;
-
-
     @FXML
     private Label wrongUserLabel;
+
+    public static User loggedIn = new User();
 
 
     @FXML
     void login(ActionEvent event) throws IOException {
         dbConnect db = new dbConnect();
-        User user = new User();
-        
+        User user;
         if(db.confirmUsername(userNameTextField.getText())){
             user =db.getUser(userNameTextField.getText());
         	System.out.println("User confirmed");
@@ -70,8 +67,6 @@ public class itechChatLoginWindowController {
             }
         }
 
-
-
     @FXML
     void handleErrorMessage(MouseEvent event) {
         wrongUserLabel.setVisible(false);
@@ -81,10 +76,10 @@ public class itechChatLoginWindowController {
         Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Itech Chat");
-        stage.setScene(new Scene(root, 550, 550));
+        stage.setScene(new Scene(root, 1500, 540));
         stage.setFullScreen(true);
         stage.show();
-        ((Node)(event.getSource())).getScene().getWindow().hide();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
     @FXML
@@ -101,32 +96,26 @@ public class itechChatLoginWindowController {
 
     @FXML
     void saveRegister(ActionEvent event) throws IOException {
-        //registerTextField.getText();
-        //passwortBox.getCharacters();
         dbConnect db = new dbConnect();
         if(!db.confirmUsername(registerTextField.getText()) && !registerTextField.getText().isEmpty() && !registerPasswort.getText().isEmpty()){
             if(registerPasswort.getText().equals(registerPasswortConfirm.getText())){
                 User user = new User();
                 user.setPw(user.hashpassword(registerPasswort.getText()));
                 user.setUsername(registerTextField.getText());
-                //System.out.println(user.getUsername()+user.getPw());
                 db.insertUser(user);
                 openloginWindow(event);
-            }else{
+            }else {
+                errorLabel.setText("Eingebene Passwörter stimmen nicht überein!");
                 errorLabel.setVisible(true);
             }
         }else{
+            errorLabel.setText("Bitte füllen sie alle Felder aus!");
             errorLabel.setVisible(true);
         }
-
-
-
-
-
     }
 
     void openloginWindow(ActionEvent event)throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("itechChatLoginWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("loginWindow.fxml"));
         Stage stage = new Stage();
         stage.setTitle("itech Chat");
         stage.setScene(new Scene(root, 480, 420));

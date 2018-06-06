@@ -1,8 +1,6 @@
 package View;
 
 
-import backend.dbConnect;
-import backend.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +11,7 @@ public class Main extends Application {
 
 @Override
 public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("itechChatLoginWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("loginWindow.fxml"));
         primaryStage.setFullScreen(false);
         primaryStage.setTitle("itech Chat");
         primaryStage.setScene(new Scene(root));
