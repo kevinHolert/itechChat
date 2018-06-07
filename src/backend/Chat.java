@@ -45,12 +45,4 @@ public class Chat {
 	}
 
 
-	public void setSentMessages(ArrayList<Message> sentMessages) {
-		sentMessages = sentMessages;
-	}
-
-
-	public void setReceivedMessages(ArrayList<Message> receivedMessages) {
-		receivedMessages = receivedMessages;
-	}
 }

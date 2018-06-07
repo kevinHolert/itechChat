@@ -223,32 +223,6 @@ public class dbConnect {
 		}
 		return result;
     }
-    
-    public Chat getChat(int userFrom, int userTo){
-    	Chat result = new Chat();
-    	String query = new String();
-    	
-    	this.openConnection();
-		try{
-			query = "SELECT * FROM message Where message.user_iduser_from='"+userFrom+"' AND message.user_userid_to='"+userTo+"'";
-    		
-    		Statement s= conn.createStatement();
-    		s.execute(query);
-    		
-    		ResultSet r = s.getResultSet();
-    		if(r!=null){
-    			while(r.next()){
-    				/*result.setUserid(r.getInt("iduser"));
-    				result.setUsername(r.getString("username"));
-    				result.setPw(r.getString("password"));
-    				result.setSalt(r.getString("salt"));*/
-    			}
-    		}
-		}catch(SQLException e){
-			e.printStackTrace();
-		}
-    	return result;
-    }
 
 
 	public Chat getAllMessages(User userFrom, User userTo){
