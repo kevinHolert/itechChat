@@ -89,8 +89,10 @@ public class mainWindowController implements Initializable{
             Parent root = FXMLLoader.load(getClass().getResource("fullChatWindow.fxml"));
             Stage stage = new Stage();
             stage.setTitle("FullChat");
-            stage.setScene(new Scene(root, 1920, 1080));
-            stage.setFullScreen(true);
+            stage.setScene(new Scene(root, 550, 450));
+            stage.setMinWidth(550);
+            stage.setMinHeight(450);
+            stage.setFullScreen(false);
             stage.show();
             ((Node) (event.getSource())).getScene().getWindow().hide();
         }

@@ -76,8 +76,10 @@ public class loginWindowController {
         Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Itech Chat");
-        stage.setScene(new Scene(root, 1500, 540));
-        stage.setFullScreen(true);
+        stage.setScene(new Scene(root, 550, 450));
+        stage.setFullScreen(false);
+        stage.setMinWidth(550);
+        stage.setMinHeight(450);
         stage.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
